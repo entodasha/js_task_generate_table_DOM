@@ -356,31 +356,33 @@ const people = [
 
 const table = document.querySelector('.dashboard');
 
-for (const person of people) {
-  const row = document.createElement('tr');
+if (table) {
+  for (const person of people) {
+    const row = document.createElement('tr');
 
-  const age = person.died - person.born;
-  const century = Math.floor(person.died / 100);
+    const age = person.died - person.born;
+    const century = Math.floor(person.died / 100);
 
-  const gender =
-    person.sex === 'm' ? 'male' : person.sex === 'f' ? 'female' : person.sex;
+    const gender =
+      person.sex === 'm' ? 'male' : person.sex === 'f' ? 'female' : person.sex;
 
-  const cellData = [
-    person.name,
-    gender,
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+    const cellData = [
+      person.name,
+      gender,
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
 
-  for (const data of cellData) {
-    const cell = document.createElement('td');
+    for (const data of cellData) {
+      const cell = document.createElement('td');
 
-    cell.textContent = data;
+      cell.textContent = data;
 
-    row.appendChild(cell);
+      row.appendChild(cell);
+    }
+
+    table.appendChild(row);
   }
-
-  table.appendChild(row);
 }
